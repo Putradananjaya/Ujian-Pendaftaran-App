@@ -1,0 +1,12 @@
+{
+  "name": "undiknas/ujian-praktek-rpl",
+  "description": "Uji Kompetensi Rekayasa Perangkat Lunak",
+  "require-dev": {
+    "phpunit/phpunit": "^10.0"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  }
+}
