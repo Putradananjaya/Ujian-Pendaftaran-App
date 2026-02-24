@@ -1,46 +1,43 @@
-# Ujian Kompetensi Praktik: Rekayasa Perangkat Lunak
+# LEMBAR TUGAS UJI KOMPETENSI: REKAYASA PERANGKAT LUNAK (SOFTWARE ENGINEERING)
 
-**SITUATION:** Anda sedang mengikuti uji kompetensi skema Rekayasa Perangkat Lunak. Anda menerima _source code_ aplikasi "Sistem Pendaftaran" [https://go.psti.undiknas.ac.id/AnalisProgram] yang belum selesai dari tim sebelumnya. Aplikasi ini memiliki masalah:
+## 📌 SITUATION (SITUASI)
+Anda sedang mengikuti uji kompetensi untuk skema **Rekayasa Perangkat Lunak (*Software Engineering*)**. Anda ditugaskan untuk mengambil alih *source code* aplikasi **"Sistem Pendaftaran"** (tautan referensi proyek: [Ujian-Pendaftaran-App](https://go.psti.undiknas.ac.id/OkupasiAnalisProgram)) yang belum selesai dikembangkan oleh tim sebelumnya.
 
-1. Data pendaftar gagal tersimpan ke database (ada error pada logika dan query).
-2. Kodenya berantakan dan rentan terhadap serangan (_SQL Injection_).
-3. Aplikasi sangat lambat (membutuhkan waktu lama saat memuat daftar ribuan pendaftar).
-4. Belum ada pengujian (testing) dan dokumentasi sama sekali.
-
-**TASK:** Dalam waktu **120 menit**, Anda diminta untuk mereviu dan memperbaiki bug, mengoptimalkan kecepatan muat datanya (skalabilitas), menguji performa, serta membuat dokumentasi kodenya.
-
-**ACTION:**
-
-1. Buka Terminal di Codespaces, ketik `composer install` lalu `php setup.php` untuk menyiapkan database.
-2. Ketik `php -S localhost:8000 -t src/` di terminal untuk melihat tampilan aplikasi di _browser_.
-3. Perbaiki _bug_ pada `src/proses.php` dan masalah performa pada `src/index.php`.
-4. Jalankan pengujian di terminal dengan perintah `vendor/bin/phpunit tests/` sampai hasil menunjukkan tulisan hijau (PASSED).
+Saat ini, aplikasi tersebut memiliki beberapa masalah kritis:
+* Data pendaftar gagal tersimpan ke *database* (terdapat *error* pada logika dan *query*).
+* Penulisan kode berantakan, rentan terhadap celah keamanan (*SQL Injection*), dan sulit dibaca.
+* Aplikasi mengalami *bottleneck* performa (sangat lambat saat memuat daftar ribuan pendaftar).
+* Belum ada implementasi pengujian (*testing*) dan dokumentasi teknis sama sekali.
 
 ---
 
-## 📝 LAPORAN HASIL PEKERJAAN (Isi di bawah ini!)
+## 🎯 TASK (TUGAS)
+Dalam batas waktu **120 menit**, Anda diminta untuk mereviu dan memperbaiki *bug*, memastikan sistem terhubung ke *database* dengan aman, menguji alur kerja aplikasi secara otomatis, mengoptimalkan kecepatan muat data, serta menyusun dokumentasi kodenya.
 
-**Nama:** [NAMA ANDA]  
-**NIM:** [NIM ANDA]
+---
 
-### 1. Log Debugging & Algoritma (`proses.php`)
+## 🛠️ ACTION (TINDAKAN)
 
-- _Jelaskan bug apa saja yang Anda temukan saat data gagal disimpan, dan bagaimana Anda memperbaikinya?_
-- (Jawaban Anda di sini...)
+### Fasilitas & Akses:
+Anda diberikan akses penuh menuju:
+1. **Tautan Repository GitHub "Sistem Pendaftaran"** (menggunakan fitur *GitHub Template*) yang berisi *source code* awal dan *database* sampel.
+2. **Lingkungan kerja awan GitHub Codespaces** yang sudah dilengkapi dengan IDE (*Visual Studio Code*), *Visual Debugger*, dan terminal terintegrasi untuk proses *Profiling*.
+3. **Daftar skenario Unit Test dan Integration Test** yang telah disiapkan dan dapat dieksekusi langsung melalui terminal.
 
-### 2. SQL & Keamanan Basis Data
+### Langkah Pengerjaan (Mencakup 10 Unit Kompetensi):
+* **(Code Review):** Membaca, menganalisis, dan merapikan *source code* awal yang penulisan sintaksnya belum standar.
+* **(Algoritma & Debugging):** Mencari penyebab kegagalan saat proses simpan data dan memperbaiki logika algoritmanya.
+* **(SQL & Akses Basis Data):** Memperbaiki perintah SQL agar aman dari injeksi dan memastikan aplikasi berhasil melakukan operasi baca/tulis ke *database*.
+* **(Unit & Integrasi Program):** Menjalankan dan meluluskan pengujian per modul (fungsi simpan data) serta pengujian integrasi (alur pendaftaran dari form HTML hingga tampil di tabel data).
+* **(Profiling & Skalabilitas):** Menggunakan alat ukur waktu eksekusi untuk menemukan penyebab lambatnya aplikasi, melakukan optimasi kueri, dan menuliskan rekomendasi teknis agar aplikasi tidak *crash* ketika diakses pengguna secara masif.
+* **(Dokumen Kode):** Menambahkan blok komentar/penjelasan pada *source code* agar alurnya mudah dipahami oleh *developer* selanjutnya.
 
-- _Bagaimana cara Anda mencegah SQL Injection pada `proses.php`? Tuliskan perbandingan query lama vs query baru Anda._
-- (Jawaban Anda di sini...)
+---
 
-### 3. Profiling Program & Skalabilitas (`index.php`)
+## 🏆 RESULT (HASIL AKHIR)
+Pada akhir sesi, Anda diwajibkan untuk mendemonstrasikan dan menyerahkan hasil berikut kepada Asesor:
 
-- **Waktu Muat Halaman Sebelum Diperbaiki:** ... detik
-- **Waktu Muat Halaman Setelah Diperbaiki:** ... detik
-- _Jelaskan secara logis, mengapa kueri awal (N+1 Query) sangat lambat dan berpotensi membuat server crash jika data pendaftar mencapai 100.000 orang?_
-- (Jawaban Anda di sini...)
-
-### 4. Dokumentasi Kode Program
-
-- _Tuliskan dokumentasi singkat tentang alur kerja aplikasi ini dari saat user menekan tombol daftar, hingga data masuk ke database._
-- (Jawaban Anda di sini...)
+1. **Aplikasi Berjalan Lancar:** Mendemonstrasikan secara langsung bahwa sistem telah mampu menyimpan data baru secara valid dan memuat daftar peserta dengan kecepatan optimal.
+2. **Bukti Pengujian:** Menyerahkan laporan (*screenshot* terminal) yang membuktikan seluruh Uji Unit dan Uji Integrasi berstatus **Passed/Berhasil** (hijau).
+3. **Laporan Performa & Skalabilitas:** Menyusun dokumen ringkas (di dalam file `README.md` pada bagian laporan asesi) yang memuat data perbandingan kecepatan muat aplikasi (sebelum vs. sesudah optimasi) dan analisis ketahanan sistem.
+4. **Source Code Terdokumentasi:** Menyerahkan tautan repositori berisi *file* kode final yang rapi, aman, dan memuat dokumentasi/komentar teknis.
